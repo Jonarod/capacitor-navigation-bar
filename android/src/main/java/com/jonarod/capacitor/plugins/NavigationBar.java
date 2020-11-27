@@ -30,9 +30,14 @@ public class NavigationBar extends Plugin {
     public void set(PluginCall call) {
 
         String bgColor = call.getString("bgColor");
-
         if(bgColor == null || bgColor.equals("") || !bgColor.contains("#")){
             call.error("Backgroud color cannot be empty or null. It should be a hex value, eg: #d1009d");
+        }
+
+        String theme = call.getString("theme");
+        if(theme == null || !theme.equals("dark") || !theme.equals("light")){
+            // call.error("Theme should either be dark or light");
+            theme = "dark";
         }
 
         /**
@@ -41,13 +46,17 @@ public class NavigationBar extends Plugin {
         try{
             final int parsedBgColor = Color.parseColor(bgColor);
             final Window window = ((Activity) getContext()).getWindow();
+            final Activity activity = (Activity) getContext();
+            final String finalTheme = theme;
 
-             getActivity().runOnUiThread(new Runnable() {
+            activity.runOnUiThread(new Runnable() {
                  @Override
                  public void run() {
                      window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                      window.setNavigationBarColor(parsedBgColor);
-                     window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                     if(finalTheme.equals("light")){
+                         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                     }
                  }
              });
 
