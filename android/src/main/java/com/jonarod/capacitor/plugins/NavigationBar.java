@@ -1,4 +1,4 @@
-package com.jonarod.capacitor.navigationbar;
+package com.jonarod.capacitor.plugins;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;

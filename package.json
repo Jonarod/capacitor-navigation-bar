@@ -1,6 +1,6 @@
 {
   "name": "@jonarod/capacitor-navigation-bar",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "Set navigation bar properties on Android.",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
