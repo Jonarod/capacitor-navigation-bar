@@ -8,7 +8,7 @@ npx cap sync
 then in `android/app/src/main/java/MainActivity.java`, add:
 
 ```
-import com.jonarod.capacitor.NavigationBar;
+import com.jonarod.capacitor.plugins.NavigationBar;
 ```
 
 then,
@@ -20,6 +20,7 @@ then,
 # Usage
 
 ```
+import { Plugins } from '@capacitor/core';
 import { NavigationBar } from Plugins;
 
 ...
