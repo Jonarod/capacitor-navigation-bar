@@ -1,7 +1,7 @@
 # Install
 
 ```
-npm i --save capacitor-navigation-bar
+npm i --save @jonarod/capacitor-navigation-bar
 npx cap sync
 ```
 

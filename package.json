@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-navigation-bar",
+  "name": "@jonarod/capacitor-navigation-bar",
   "version": "0.0.1",
   "description": "Set navigation bar properties on Android.",
   "main": "dist/plugin.js",
@@ -12,7 +12,8 @@
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "git add . && git commit -m \"new release\" && git push-u origin master && npm publish --access=public"
   },
   "author": "Jonarod",
   "license": "MIT",
