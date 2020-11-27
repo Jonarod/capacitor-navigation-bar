@@ -13,7 +13,7 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "release": "git add . && git commit -m \"new release\" && git push-u origin master && npm publish --access=public"
+    "release": "git add . && git commit -m \"new release\" && git push -u origin master && npm publish --access=public"
   },
   "author": "Jonarod",
   "license": "MIT",
