@@ -5,6 +5,17 @@ npm i --save @jonarod/capacitor-navigation-bar
 npx cap sync
 ```
 
+then in `android/app/src/main/java/MainActivity.java`, add:
+
+```
+import com.jonarod.capacitor.NavigationBar;
+```
+
+then,
+
+```
+  add(NavigationBar.class);
+```
 
 # Usage
 
