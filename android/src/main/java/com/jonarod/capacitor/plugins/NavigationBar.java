@@ -35,7 +35,7 @@ public class NavigationBar extends Plugin {
         }
 
         String theme = call.getString("theme");
-        if(theme == null || !theme.equals("dark") || !theme.equals("light")){
+        if(theme == null || !theme.equals("light")){
             // call.error("Theme should either be dark or light");
             theme = "dark";
         }
@@ -52,11 +52,15 @@ public class NavigationBar extends Plugin {
             activity.runOnUiThread(new Runnable() {
                  @Override
                  public void run() {
-                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                     window.setNavigationBarColor(parsedBgColor);
-                     if(finalTheme.equals("light")){
-                         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+                     View decorView = activity.getWindow().getDecorView();
+                     int flags = decorView.getSystemUiVisibility();
+                     if (finalTheme.equals("light")) {
+                         flags |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+                     } else {
+                         flags &= ~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
                      }
+                     decorView.setSystemUiVisibility(flags);
+                     window.setNavigationBarColor(parsedBgColor);
                  }
              });
 
